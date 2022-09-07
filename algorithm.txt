@@ -1,0 +1,12 @@
+1. Load the image's pixels to a 2D array
+
+	I've now got a pixel array of RGBA values. When converting to the brightness number,
+	I'll just use the RGBS and do nothing with the alpha value
+
+2. Convert the RGB tuples of each pixel into a singular number representing brightness
+	I'm going to use average for now: brightness = (R+G+B) / 3
+	Later I'll also try RMS
+
+3. Convert these brightness numbers into ASCII characters
+
+4. Print the ASCII art!
