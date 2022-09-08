@@ -13,7 +13,7 @@ func main() {
     // You can register another format here
     image.RegisterFormat("png", "png", png.Decode, png.DecodeConfig)
 
-    file, err := os.Open("./image.png")
+    file, err := os.Open("/home/aelish/repos/ascii-art/photos/noface.png")
 
     if err != nil {
         fmt.Println("Error: File could not be opened")
@@ -30,6 +30,9 @@ func main() {
     }
 
     fmt.Println(pixels)
+
+    // now we want to get a new array which will recieve the pixel array as an argument,
+    // and return an array of brightness values for each pixel
 }
 
 // Get the bi-dimensional pixel array
