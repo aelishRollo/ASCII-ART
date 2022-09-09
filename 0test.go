@@ -30,9 +30,13 @@ func main() {
     }
 
     fmt.Println(pixels)
+    fmt.Println(getBrightnessFromPixels(pixels))
 
     // now we want to get a new array which will recieve the pixel array as an argument,
     // and return an array of brightness values for each pixel
+    // the logic is there, but the issue is a mismatch in type between the custom type Pixel, and
+    // []int. So we need to get each value from the Pixel and assign that to be a new value in the 
+    // array
 }
 
 // Get the bi-dimensional pixel array
@@ -62,6 +66,23 @@ func getPixels(file io.Reader) ([][]Pixel, error) {
 func rgbaToPixel(r uint32, g uint32, b uint32, a uint32) Pixel {
     return Pixel{int(r / 257), int(g / 257), int(b / 257), int(a / 257)}
 }
+
+
+func getBrightnessFromPixels(inputArray [][]Pixel) []int {	//accepts a two dimensional array, and returns an integer array
+	result := []int{}
+	tempVar := 0
+	for m := 0; m < len(inputArray); m++ {
+		tempVar = 0
+		for n := 0; n < len(inputArray[m]); n++ {
+			tempVar += inputArray[m][n]
+		}
+		result = append(result, tempVar)
+	}
+	return result
+}
+
+
+
 
 // Pixel struct example
 type Pixel struct {
