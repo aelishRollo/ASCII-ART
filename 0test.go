@@ -6,7 +6,7 @@ import (
     "image/png"
     "os"
     "io"
-    "net/http"
+    //"net/http"
 )
 
 func main() {
@@ -31,6 +31,28 @@ func main() {
 
     fmt.Println(pixels)
 
+/*    fmt.Println(pixels)
+    fmt.Println("Datura")
+    fmt.Println("Datura")
+    fmt.Println("Brugmansia")
+
+    fmt.Println("We gonna print length of pixels now")
+
+    fmt.Println(len(pixels))
+
+    fmt.Println("We gonna print length of pixels[0] now baby!@!!!!")
+
+    fmt.Println(len(pixels[0]))
+
+    fmt.Println("Datura")
+    fmt.Println("Datura")
+    fmt.Println("Brugmansia")
+
+    fmt.Println("We gonna print pixels now")
+*/
+
+
+    fmt.Println(getBrightnessArray(pixels))
     // now we want to get a new array which will recieve the pixel array as an argument,
     // and return an array of brightness values for each pixel
 }
@@ -62,6 +84,42 @@ func getPixels(file io.Reader) ([][]Pixel, error) {
 func rgbaToPixel(r uint32, g uint32, b uint32, a uint32) Pixel {
     return Pixel{int(r / 257), int(g / 257), int(b / 257), int(a / 257)}
 }
+
+func getBrightnessArray([][]Pixel) [][]int {
+
+    brightnessArray := [][]int {}
+    tempArray := []int{}
+    brightnessNumber := 0
+    for i := 0; i < len(pixels); i++ {
+            tempArray = nil
+        for j := 0; j < len(pixels[0]); j++ { // each temp array is a row/column 
+                
+                 brightnessNumber = 0
+                 brightnessNumber += pixels[i][j].R
+                 brightnessNumber += pixels[i][j].G
+                 brightnessNumber += pixels[i][j].B
+                 brightnessNumber = brightnessNumber/3
+                 tempArray = append(tempArray, brightnessNumber)
+                
+        }
+        brightnessArray = append(brightnessArray,tempArray)     
+    }
+
+    fmt.Println("YOOOO")
+    fmt.Println("YOOOO")
+    fmt.Println("YOOOO")
+    fmt.Println("YOOOO")
+    fmt.Println("This is the length of brightnessArray")
+    fmt.Println(len(brightnessArray))
+    fmt.Println("This is length of brightnessArray[0]")
+    fmt.Println(len(brightnessArray[0])) 
+    fmt.Println("the array itself")
+    fmt.Println(brightnessArray)
+    
+        return brightnessArray
+}
+
+
 
 // Pixel struct example
 type Pixel struct {
