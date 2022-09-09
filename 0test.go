@@ -33,7 +33,7 @@ func main() {
 
 
     fmt.Println(getBrightnessArray(pixels))
-    
+    fmt.Println(mapBrightnessArrayToASCII(getBrightnessArray(pixels)))
 }
 
 // Get the bi-dimensional pixel array
@@ -90,11 +90,11 @@ func getBrightnessArray(pixels [][]Pixel) [][]int {
 }
 
 
-func mapBrightnessArrayToASCIIArray(brightnessArray [][]int) [][]int {
+func mapBrightnessArrayToASCII(brightnessArray [][]int) [][]string {
 
-    ASCIIArray := [][]int {}
-    tempArray := []int{}
-    currentChar = ""
+    ASCIIArray := [][]string {}
+    tempArray := []string{}
+    currentChar := ""
     for i := 0; i < len(brightnessArray); i++ {
             tempArray = nil
         for j := 0; j < len(brightnessArray[0]); j++ { // each temp array is a row/column 
@@ -112,7 +112,12 @@ func mapBrightnessArrayToASCIIArray(brightnessArray [][]int) [][]int {
         return ASCIIArray
 }
 
-
+func ascify(num int) string {
+	result := ""
+	stringOfChars := "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+	result = string(stringOfChars[num*64/255])
+	return result
+}
 
 
 
