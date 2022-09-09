@@ -90,6 +90,33 @@ func getBrightnessArray(pixels [][]Pixel) [][]int {
 }
 
 
+func mapBrightnessArrayToASCIIArray(brightnessArray [][]int) [][]int {
+
+    ASCIIArray := [][]int {}
+    tempArray := []int{}
+    currentChar = ""
+    for i := 0; i < len(brightnessArray); i++ {
+            tempArray = nil
+        for j := 0; j < len(brightnessArray[0]); j++ { // each temp array is a row/column 
+                
+                  
+                 currentChar = ascify(brightnessArray[i][j])
+                 tempArray = append(tempArray, currentChar)
+                
+        }
+        ASCIIArray = append(ASCIIArray,tempArray)     
+    }
+
+   
+    
+        return ASCIIArray
+}
+
+
+
+
+
+
 
 // Pixel struct example
 type Pixel struct {
