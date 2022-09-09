@@ -84,16 +84,7 @@ func getBrightnessArray(pixels [][]Pixel) [][]int {
         brightnessArray = append(brightnessArray,tempArray)     
     }
 
-    fmt.Println("YOOOO")
-    fmt.Println("YOOOO")
-    fmt.Println("YOOOO")
-    fmt.Println("YOOOO")
-    fmt.Println("This is the length of brightnessArray")
-    fmt.Println(len(brightnessArray))
-    fmt.Println("This is length of brightnessArray[0]")
-    fmt.Println(len(brightnessArray[0])) 
-    fmt.Println("the array itself")
-    fmt.Println(brightnessArray)
+   
     
         return brightnessArray
 }
