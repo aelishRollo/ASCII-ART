@@ -29,32 +29,11 @@ func main() {
         os.Exit(1)
     }
 
-    fmt.Println(pixels)
-
-/*    fmt.Println(pixels)
-    fmt.Println("Datura")
-    fmt.Println("Datura")
-    fmt.Println("Brugmansia")
-
-    fmt.Println("We gonna print length of pixels now")
-
-    fmt.Println(len(pixels))
-
-    fmt.Println("We gonna print length of pixels[0] now baby!@!!!!")
-
-    fmt.Println(len(pixels[0]))
-
-    fmt.Println("Datura")
-    fmt.Println("Datura")
-    fmt.Println("Brugmansia")
-
-    fmt.Println("We gonna print pixels now")
-*/
+    //fmt.Println(pixels)
 
 
     fmt.Println(getBrightnessArray(pixels))
-    // now we want to get a new array which will recieve the pixel array as an argument,
-    // and return an array of brightness values for each pixel
+    
 }
 
 // Get the bi-dimensional pixel array
@@ -85,7 +64,7 @@ func rgbaToPixel(r uint32, g uint32, b uint32, a uint32) Pixel {
     return Pixel{int(r / 257), int(g / 257), int(b / 257), int(a / 257)}
 }
 
-func getBrightnessArray([][]Pixel) [][]int {
+func getBrightnessArray(pixels [][]Pixel) [][]int {
 
     brightnessArray := [][]int {}
     tempArray := []int{}
